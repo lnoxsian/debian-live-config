@@ -12,7 +12,7 @@ vlc-plugin-visualization
 vlc-plugin-video-output
 vlc-plugin-base
 vlc-plugin-qt
-mpv
+#mpv
 #Alt: freetuxtv
 #Alt: gnome-dvb-client
 #Alt: gnome-mpv
@@ -31,7 +31,7 @@ mpv
 #Section: Music players/library managers
 #Description: quodlibet
 quodlibet
-exfalso
+#exfalso
 libgpod-common
 libgpod4
 sox
