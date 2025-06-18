@@ -275,10 +275,10 @@ gnome-font-viewer
 #Section: Spell checking/dictionaries
 hunspell
 hunspell-en-us
-hunspell-fr
+#hunspell-fr
 aspell
-aspell-fr
-hunspell-fr
+#aspell-fr
+#hunspell-fr
 ispell
 iamerican
 ibritish
