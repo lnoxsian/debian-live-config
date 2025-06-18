@@ -292,6 +292,7 @@ wfrench
 #Section: Resources
 desktop-base
 papirus-icon-theme
+arc-theme
 yaru-theme-gtk
 gnome-themes-extra
 sound-theme-freedesktop
