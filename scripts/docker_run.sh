@@ -8,6 +8,7 @@ REPO_URL="https://github.com/lnoxsian/debian-live-config.git"
 # Container and image settings
 CONTAINER_NAME="deblivebuild"
 IMAGE_NAME="debian"
+REPO_DIR="debian-live-config"
 
 # Function to run a command inside the Docker container
 docker_exec() {
@@ -37,7 +38,7 @@ docker_exec "apt update -y && apt upgrade -y && apt install -y git sudo make"
 
 # Step 4: Clone the Git repository
 echo "Cloning repository: $REPO_URL"
-docker_exec "git clone $REPO_URL"
+docker_exec "git clone $REPO_URL $REPO_DIR"
 
 # Step 5: Optional user command
 read -p "Would you like to run the iso build now ? (y/n): " user_choice
@@ -47,6 +48,8 @@ BUILD_COMMAND="cd debian-live-config && make install_buildenv && make"
 if [[ "$user_choice" =~ ^[Yy]$ ]]; then
     echo "Running build: $BUILD_COMMAND"
     docker_exec "$BUILD_COMMAND"
+    echo "Copying the generated iso: live-image-amd64.hybrid.iso"
+    docker cp $CONTAINER_NAME:/$REPO_DIR/live-image-amd64.hybrid.iso .
 else
     echo "
     Skipping iso build.
