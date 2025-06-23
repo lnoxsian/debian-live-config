@@ -48,7 +48,11 @@ if [[ "$user_choice" =~ ^[Yy]$ ]]; then
     echo "Running build: $BUILD_COMMAND"
     docker_exec "$BUILD_COMMAND"
 else
-    echo "Skipping iso build."
+    echo "
+    Skipping iso build.
+    in order to run it
+    docker exec -it $CONTAINER_NAME bash -c $BUILD_COMMAND"
+
 fi
 
 echo "All tasks complete."
