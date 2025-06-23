@@ -1,0 +1,13 @@
+services:
+  deblivebuild:
+    build:
+      context: .
+    container_name: deblivebuild
+    hostname: deblivebld
+    privileged: true
+    cap_add:
+      - SYS_CHROOT
+    environment:
+      - REPO_URL=https://github.com/your-user/debian-live-config.git
+    volumes:
+      - ./workspace:/root/workspace

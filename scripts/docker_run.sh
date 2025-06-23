@@ -51,7 +51,8 @@ else
     echo "
     Skipping iso build.
     in order to run it
-    docker exec -it $CONTAINER_NAME bash -c $BUILD_COMMAND"
+    docker exec -it $CONTAINER_NAME bash -c $BUILD_COMMAND
+    "
 
 fi
 
