@@ -1,0 +1,24 @@
+name: Build with Live-Build
+
+on:
+  workflow_dispatch:  # Allows manual triggering from the GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y make git sudo live-build
+
+      - name: Run build environment setup
+        run: make install_buildenv
+
+      - name: Run build
+        run: make
+
