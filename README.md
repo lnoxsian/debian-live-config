@@ -21,11 +21,17 @@
 
 This repository contains the `live-build` configuration and scripts used to build a custom Debian ISO image. See [Building a custom Debian ISO image](doc/md/custom.md).
 
+## Docker Build
+
+- To run the build in docker container
+
+```bash
+curl -s curl -O https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/docker_run.sh && bash docker_run.sh
+```
 
 ## Download
 
 **[![](doc/md/download.png) Download .ISO image](https://github.com/nodiscc/debian-live-config/releases/download/4.2.1/debian-live-config-4.2.1-debian-bookworm-amd64.iso)** (64-bit)
-
 
 ## Documentation
 
