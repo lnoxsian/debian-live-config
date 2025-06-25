@@ -9,6 +9,15 @@ REPO_URL="https://github.com/lnoxsian/debian-live-config.git"
 CONTAINER_NAME="deblivebuild"
 IMAGE_NAME="debian"
 REPO_DIR="debian-live-config"
+ISO_OUTPUT="$REPO_DIR/live-image-amd64.hybrid.iso"
+
+# Handle flags
+NON_INTERACTIVE=false
+for arg in "$@"; do
+  if [[ "$arg" == "-n" || "$arg" == "--non-interactive" ]]; then
+    NON_INTERACTIVE=true
+  fi
+done
 
 # Function to run a command inside the Docker container
 docker_exec() {
@@ -64,6 +73,30 @@ else
     docker exec -it $CONTAINER_NAME bash -c $BUILD_COMMAND
     "
 
+fi
+
+
+if [ "$NON_INTERACTIVE" = true ]; then
+    echo "Non-interactive mode: running build..."
+    docker_exec "$BUILD_COMMAND"
+    echo "Copying ISO to host..."
+    docker cp "$CONTAINER_NAME:/$ISO_OUTPUT" .
+    echo "ISO build complete (non-interactive)."
+else
+    read -p "Would you like to run the ISO build now? (y/n): " user_choice
+    if [[ "$user_choice" =~ ^[Yy]$ ]]; then
+        echo "Running build: $BUILD_COMMAND"
+        docker_exec "$BUILD_COMMAND"
+        echo "Copying generated ISO..."
+        docker cp "$CONTAINER_NAME:/$ISO_OUTPUT" .
+        echo "ISO build complete."
+    else
+        echo "
+Skipping ISO build.
+You can manually run it later with:
+docker exec -it $CONTAINER_NAME bash -c \"$BUILD_COMMAND\"
+"
+    fi
 fi
 
 echo "All tasks complete."
