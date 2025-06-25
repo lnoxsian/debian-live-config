@@ -45,7 +45,6 @@ else
     echo "$REPO_DIR does not exist."
     docker_exec "git clone $REPO_URL $REPO_DIR"
 fi
-docker_exec "git clone $REPO_URL $REPO_DIR"
 
 # Step 5: Optional user command
 read -p "Would you like to run the iso build now ? (y/n): " user_choice
