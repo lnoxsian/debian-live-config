@@ -37,13 +37,14 @@ echo "Updating and installing packages inside the container..."
 docker_exec "apt update -y && apt upgrade -y && apt install -y git sudo make"
 
 # Step 4: Clone the Git repository
-echo "Cloning repository: $REPO_URL"
-if [ -d "$REPO_DIR" ]; then
-    echo "$REPO_DIR does exist."
+if docker exec "$CONTAINER_NAME" bash -c "[ -d \"$REPO_DIR\" ]"; then
+    echo "Directory '$REPO_DIR' exists inside container '$CONTAINER_NAME'."
+    # You can add custom logic here if directory exists
     docker_exec "cd $REPO_DIR; git pull"
 else
-    echo "$REPO_DIR does not exist."
+    echo "Directory '$REPO_DIR' does not exist inside container '$CONTAINER_NAME'."
     docker_exec "git clone $REPO_URL $REPO_DIR"
+    # Add fallback or creation logic here
 fi
 
 # Step 5: Optional user command
