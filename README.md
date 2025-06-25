@@ -26,7 +26,7 @@ This repository contains the `live-build` configuration and scripts used to buil
 - To run the build in docker container
 
 ```bash
-curl -s curl -O https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/docker_run.sh && bash docker_run.sh
+curl -O https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/docker_run.sh && bash docker_run.sh
 ```
 
 ## Download
