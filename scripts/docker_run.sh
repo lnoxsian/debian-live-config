@@ -38,6 +38,13 @@ docker_exec "apt update -y && apt upgrade -y && apt install -y git sudo make"
 
 # Step 4: Clone the Git repository
 echo "Cloning repository: $REPO_URL"
+if [ -d "$REPO_DIR" ]; then
+    echo "$REPO_DIR does exist."
+    docker_exec "cd $REPO_DIR; git pull"
+else
+    echo "$REPO_DIR does not exist."
+    docker_exec "git clone $REPO_URL $REPO_DIR"
+fi
 docker_exec "git clone $REPO_URL $REPO_DIR"
 
 # Step 5: Optional user command
