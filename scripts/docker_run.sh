@@ -99,5 +99,17 @@ docker exec -it $CONTAINER_NAME bash -c \"$BUILD_COMMAND\"
     fi
 fi
 
+read -p "Would you like to remove the $CONTAINER_NAME container now ? (y/n): " user_choice
+if [[ "$user_choice" =~ ^[Yy]$ ]]; then
+    echo "Stopping container: $CONTAINER_NAME"
+    docker stop $CONTAINER_NAME
+    echo "Removing container: $CONTAINER_NAME"
+    docker rm $CONTAINER_NAME
+else
+    echo "
+if you want to remove the container pls run the commands below
+docker stop $CONTAINER_NAME
+docker rm $CONTAINER_NAME
+"
+fi
 echo "All tasks complete."
-
