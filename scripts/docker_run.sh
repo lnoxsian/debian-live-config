@@ -61,26 +61,11 @@ read -p "Would you like to run the iso build now ? (y/n): " user_choice
 
 BUILD_COMMAND="cd debian-live-config && make install_buildenv && make"
 
-if [[ "$user_choice" =~ ^[Yy]$ ]]; then
-    echo "Running build: $BUILD_COMMAND"
-    docker_exec "$BUILD_COMMAND"
-    echo "Copying the generated iso: live-image-amd64.hybrid.iso"
-    docker cp $CONTAINER_NAME:/$REPO_DIR/live-image-amd64.hybrid.iso .
-else
-    echo "
-    Skipping iso build.
-    in order to run it
-    docker exec -it $CONTAINER_NAME bash -c $BUILD_COMMAND
-    "
-
-fi
-
-
 if [ "$NON_INTERACTIVE" = true ]; then
     echo "Non-interactive mode: running build..."
     docker_exec "$BUILD_COMMAND"
     echo "Copying ISO to host..."
-    docker cp "$CONTAINER_NAME:/$ISO_OUTPUT" .
+    docker cp "$CONTAINER_NAME:/$REPO_DIR/$ISO_OUTPUT" .
     echo "ISO build complete (non-interactive)."
 else
     read -p "Would you like to run the ISO build now? (y/n): " user_choice
@@ -88,7 +73,7 @@ else
         echo "Running build: $BUILD_COMMAND"
         docker_exec "$BUILD_COMMAND"
         echo "Copying generated ISO..."
-        docker cp "$CONTAINER_NAME:/$ISO_OUTPUT" .
+        docker cp "$CONTAINER_NAME:/$REPO_DIR/$ISO_OUTPUT" .
         echo "ISO build complete."
     else
         echo "
