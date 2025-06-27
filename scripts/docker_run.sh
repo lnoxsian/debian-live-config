@@ -57,8 +57,6 @@ else
 fi
 
 # Step 5: Optional user command
-read -p "Would you like to run the iso build now ? (y/n): " user_choice
-
 BUILD_COMMAND="cd debian-live-config && make install_buildenv && make"
 
 if [ "$NON_INTERACTIVE" = true ]; then
