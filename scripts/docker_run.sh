@@ -63,7 +63,7 @@ if [ "$NON_INTERACTIVE" = true ]; then
     echo "Non-interactive mode: running build..."
     docker_exec "$BUILD_COMMAND"
     echo "Copying ISO to host..."
-    docker cp "$CONTAINER_NAME:/$REPO_DIR/$ISO_OUTPUT" .
+    docker cp "$CONTAINER_NAME:/$ISO_OUTPUT" .
     echo "ISO build complete (non-interactive)."
 else
     read -p "Would you like to run the ISO build now? (y/n): " user_choice
@@ -71,7 +71,7 @@ else
         echo "Running build: $BUILD_COMMAND"
         docker_exec "$BUILD_COMMAND"
         echo "Copying generated ISO..."
-        docker cp "$CONTAINER_NAME:/$REPO_DIR/$ISO_OUTPUT" .
+        docker cp "$CONTAINER_NAME:/$ISO_OUTPUT" .
         echo "ISO build complete."
     else
         echo "
