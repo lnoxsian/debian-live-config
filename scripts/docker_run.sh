@@ -81,7 +81,7 @@ docker exec -it $CONTAINER_NAME bash -c \"$BUILD_COMMAND\"
 "
     fi
 fi
-if [ "$NON_INTERACTIVE" = true]; then
+if [ "$NON_INTERACTIVE" = true ]; then
     echo "Stopping container: $CONTAINER_NAME"
     docker stop $CONTAINER_NAME
     echo "Removing container: $CONTAINER_NAME"
@@ -100,4 +100,5 @@ else
     docker rm $CONTAINER_NAME
     "
     fi
+fi
 echo "All tasks complete."
