@@ -297,11 +297,11 @@ gnome-themes-extra
 sound-theme-freedesktop
 gnome-audio
 qt5-gtk-platformtheme
+arc-theme
 #Alt: faenza-icon-theme
 #Alt: deepin-icon-theme
 #Alt: paper-icon-theme
 #Alt: mint-y-icons
-#Alt: arc-theme
 #clearlooks-phenix-theme # sid only
 
 #Section: Virtual keyboards
