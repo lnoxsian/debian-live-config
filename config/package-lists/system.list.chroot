@@ -3,6 +3,7 @@
 #Section: Package management
 #Description: gnome-packagekit
 #Description: synaptic
+nala
 apt-listchanges
 apt-transport-https
 aptitude
