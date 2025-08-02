@@ -3,7 +3,7 @@
 #Section: Web browsers
 #Description: firefox-esr
 firefox-esr
-firefox-esr-l10n-fr
+# firefox-esr-l10n-fr
 webext-ublock-origin-firefox
 webext-keepassxc-browser
 #Alt: luakit
@@ -53,7 +53,7 @@ mumble
 #Section: Mail clients
 #Description: thunderbird
 thunderbird
-thunderbird-l10n-fr
+# thunderbird-l10n-fr
 #Alt: geary
 #Alt: claws-mail
 #Alt: claws-mail-plugins
@@ -120,9 +120,9 @@ yt-dlp
 #Description: kiwix
 curl
 wget
+aria2
 #Alt: kiwix
 #Alt: kiwix-tools
-#Alt: aria2
 #Alt: zim-tools
 #Alt: httrack
 #Alt: axel

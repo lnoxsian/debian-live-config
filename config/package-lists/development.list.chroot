@@ -43,6 +43,7 @@ less
 dialog
 manpages
 manpages-dev
+tmux
 #Alt: shellcheck
 #Alt: asciinema
 #Alt: undistract-me
