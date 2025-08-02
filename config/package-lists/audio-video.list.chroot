@@ -12,7 +12,7 @@ vlc-plugin-visualization
 vlc-plugin-video-output
 vlc-plugin-base
 vlc-plugin-qt
-mpv
+# mpv
 #Alt: freetuxtv
 #Alt: gnome-dvb-client
 #Alt: gnome-mpv
@@ -31,10 +31,10 @@ mpv
 #Section: Music players/library managers
 #Description: quodlibet
 quodlibet
-exfalso
-libgpod-common
-libgpod4
-sox
+# exfalso
+# libgpod-common
+# libgpod4
+# sox
 #Alt: gnome-music
 #Alt: rhythmbox
 #Alt: rhythmbox-plugins
@@ -73,7 +73,7 @@ sox
 #Section: Webcam
 #Description: cheese
 cheese
-gnome-video-effects
+# gnome-video-effects
 #Alt: guvcview
 #Alt: gnome-video-effects-frei0r
 #Alt: v4l2loopback-dkms
@@ -170,7 +170,7 @@ media-player-info
 #Section: Audio recording/editing
 #Description: audacity
 #Description: gnome-sound-recorder
-audacity
+# audacity
 gnome-sound-recorder
 #Alt: gwc
 #Alt: gjacktransport
