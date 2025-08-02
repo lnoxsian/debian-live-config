@@ -2,18 +2,18 @@
 
 #Section: Office suite
 #Description: libreoffice
-libreoffice-writer
-libreoffice-impress
-libreoffice-draw
-libreoffice-calc
-libreoffice-gtk3
-libreoffice-java-common
-libreoffice-gnome
+# libreoffice-writer
+# libreoffice-impress
+# libreoffice-draw
+# libreoffice-calc
+# libreoffice-gtk3
+# libreoffice-java-common
+# libreoffice-gnome
 libwmf-bin
-hyphen-fr
-libreoffice-l10n-fr
-mythes-fr
-libreoffice-help-fr
+# hyphen-fr
+# libreoffice-l10n-fr
+# mythes-fr
+# libreoffice-help-fr
 #Alt: libreoffice-base
 #Alt: abiword
 #Alt: calligraplan
