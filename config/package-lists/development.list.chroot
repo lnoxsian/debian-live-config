@@ -176,10 +176,10 @@ live-build
 #Alt: php-cli
 
 #Section: Android
+adb
+fastboot
 #Alt: android-sdk
 #Alt: android-sdk-platform-tools-common
-#Alt: fastboot
-#Alt: adb
 #Alt: fastboot
 #scrcpy # sid only
 #gplaycli # sid only
