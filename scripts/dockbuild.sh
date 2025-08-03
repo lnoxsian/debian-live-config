@@ -2,11 +2,11 @@
 
 # just a build script for running the build repo in docker container
 
-docker_exec() {
+docker_exec_bash() {
     local CONTAINER_NAME="$1"
     shift
     local COMMAND="$@"
-    docker exec -it "$CONTAINER_NAME" $COMMAND
+    docker exec -it "$CONTAINER_NAME" bash -c "$COMMAND"
 }
 
 # Function to copy file from container to host
@@ -22,10 +22,11 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
-CONTAINER_NAME="$1"
-DOCKER_IMAGE="$2"
+CONTAINER_NAME="dockdeb"
+DOCKER_IMAGE="debian"
 GITHUB_REPO="https://github.com/lnoxsian/debian-live-config.git"
-GITHUB_REPO_DIR="debian-live-config"
+GITHUB_REPO_DIR="debian-live-config-test"
+GEN_ISO="live-image-amd64.hybrid.iso"
 
 docker run -dt \
     --runtime=nvidia \
@@ -36,8 +37,10 @@ docker run -dt \
     --hostname "${CONTAINER_NAME}local" \
     "$DOCKER_IMAGE"
 
-docker_exec "$CONTAINER_NAME" bash -c "git clone $GITHUB_REPO $GITHUB_REPO_DIR"
+docker_exec_bash "$CONTAINER_NAME" "apt update -y && apt upgrade -y && apt install make git sudo live-build -y"
 
-docker_exec "$CONTAINER_NAME" bash -c "apt update -y && apt upgrade -y && apt install make git sudo live-build -y"
+docker_exec_bash "$CONTAINER_NAME" "git clone $GITHUB_REPO $GITHUB_REPO_DIR"
 
-docker_exec "$CONTAINER_NAME" bash -c "cd $GITHUB_REPO_DIR && make install_buildenv && make"
+docker_exec_bash "$CONTAINER_NAME" "cd $GITHUB_REPO_DIR && make install_buildenv && make"
+
+docker_copy "$CONTAINER_NAME" "/root/$GITHUB_REPO_DIR/$GEN_ISO" .
