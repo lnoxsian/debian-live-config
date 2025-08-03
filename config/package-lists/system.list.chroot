@@ -221,6 +221,7 @@ default-jre
 #Description: lightdm
 lightdm
 lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
 light-locker
 #Alt: accountsservice
 #Alt: slim
