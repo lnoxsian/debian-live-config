@@ -30,6 +30,11 @@ build:
 	sudo lb config
 	sudo lb build
 
+build_noclean:
+	# Build the live system/ISO image
+	sudo lb config
+	sudo lb build
+
 ##############################
 
 .PHONY: bump_version # bump all version indicators before a new release
