@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# wget -O - https://raw.githubusercontent.com/lnoxsian/debian-live-config/scripts/dockbuild.sh | bash
+# wget https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/dockbuild.sh && ./dockbuild.sh
 # just a build script for running the build repo in docker container
 docker_exec_bash() {
     local CONTAINER_NAME="$1"
