@@ -1,11 +1,15 @@
 #!/usr/bin/bash
 # wget https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/dockbuild.sh && bash dockbuild.sh
 # just a build script for running the build repo in docker container
+filter_progress() {
+  grep -v -E '^\[.*%.*\]|Downloading|Preparing|Installing|^Progress:|Collecting'
+}
+
 log_and_show() {
-# logfile with unique name and time stamp
-logfile="log_$(date '+%Y-%m-%d_%H-%M-%S').txt"
-# Run the command, show output, and append to the log file
-exec > >(tee -a "$logfile") 2>&1
+  # Generates logfile name with current date and time
+  logfile="log_$(date '+%Y-%m-%d_%H-%M-%S').txt"
+  # Run the command, show output, and append to the log file
+  exec > >(tee >(filter_progress >> "$logfile")) 2>&1
 }
 
 docker_exec_bash() {
@@ -56,7 +60,7 @@ GITHUB_REPO="https://github.com/lnoxsian/debian-live-config.git"
 GITHUB_REPO_DIR="debian-live-config-test"
 GEN_ISO="live-image-amd64.hybrid.iso"
 
-log_and_show # running the logger for the exec
+# log_and_show # running the logger for the exec
 
 echo "[1]:Creating the docker container"
 docker_run "$CONTAINER_NAME" "$DOCKER_IMAGE"
