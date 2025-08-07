@@ -1,6 +1,14 @@
 #!/usr/bin/bash
 # wget https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/dockbuild.sh && bash dockbuild.sh
 # just a build script for running the build repo in docker container
+
+log_and_show() {
+  # Generates logfile name with current date and time
+  logfile="log_$(date '+%Y-%m-%d_%H-%M-%S').txt"
+  # Run the command, show output, and append to the log file
+  "$@" 2>&1 | tee -a "$logfile"
+}
+
 docker_exec_bash() {
     local CONTAINER_NAME="$1"
     shift
@@ -39,18 +47,30 @@ docker_run() {
 # Default values for the env vars
 CONTAINER_NAME="dockdeb"
 DOCKER_IMAGE="debian"
+
+# my custom build for the repo
 GITHUB_REPO="https://github.com/lnoxsian/debian-live-config.git"
+
+# original build for the repo
+# GITHUB_REPO="https://gitlab.com/nodiscc/debian-live-config.git" # this is for the original repo build into
+#
 GITHUB_REPO_DIR="debian-live-config-test"
 GEN_ISO="live-image-amd64.hybrid.iso"
 
+echo "[1]:Creating the docker container"
 docker_run "$CONTAINER_NAME" "$DOCKER_IMAGE"
 
+echo "[2]:Installing build deps git sudo live-build etc.. "
 docker_exec_bash "$CONTAINER_NAME" "apt update -y && apt upgrade -y && apt install make git sudo live-build -y"
 
+echo "[3]:Cloning and pulling the git repo"
 docker_exec_bash "$CONTAINER_NAME" "git clone $GITHUB_REPO $GITHUB_REPO_DIR"
 
+echo "[4]:Creating starting the build "
 docker_exec_bash "$CONTAINER_NAME" "cd $GITHUB_REPO_DIR && make install_buildenv && make"
 
+echo "[5]:Copying the iso that was build from the container"
 docker_copy "$CONTAINER_NAME" "/$GITHUB_REPO_DIR/$GEN_ISO" .
 
+echo "[6]:Removing the docker container"
 docker_stop "$CONTAINER_NAME" 
