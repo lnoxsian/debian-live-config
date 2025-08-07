@@ -2,6 +2,7 @@
 # wget https://raw.githubusercontent.com/lnoxsian/debian-live-config/main/scripts/dockbuild.sh && bash dockbuild.sh
 # just a build script for running the build repo in docker container
 log_and_show() {
+# logfile with unique name and time stamp
 logfile="log_$(date '+%Y-%m-%d_%H-%M-%S').txt"
 # Run the command, show output, and append to the log file
 exec > >(tee -a "$logfile") 2>&1
