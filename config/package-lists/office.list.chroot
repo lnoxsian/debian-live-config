@@ -58,7 +58,7 @@ libwmf-bin
 
 #Section: Personal finance
 #Description: homebank
-homebank
+#Alt: homebank
 #Alt: gnucash
 #Alt: grisbi
 

@@ -12,8 +12,8 @@ vlc-plugin-visualization
 vlc-plugin-video-output
 vlc-plugin-base
 vlc-plugin-qt
-mpv
-mpv-mpris
+#Alt: mpv
+#Alt: mpv-mpris
 #Alt: freetuxtv
 #Alt: kodi
 #Alt: parole
@@ -173,7 +173,7 @@ media-player-info
 #Description: audacity
 #Description: gnome-sound-recorder
 audacity
-gnome-sound-recorder
+#Alt: gnome-sound-recorder
 #Alt: gjacktransport
 #gwc # bookworm only
 

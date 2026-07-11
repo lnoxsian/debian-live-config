@@ -175,20 +175,20 @@ colortail
 
 #Section: Virtualization
 #Description: virt-manager
-virt-manager
-virtinst
-virt-viewer
-ebtables
-dnsmasq-base
-libvirt-daemon-system
-gir1.2-spiceclientgtk-3.0
-qemu-system-x86
-qemu-system-arm
-qemu-utils
-libguestfs-tools
-virt-p2v
-libguestfs-rsync
-libguestfs-rescue
+#Alt: virt-manager
+#Alt: virtinst
+#Alt: virt-viewer
+#Alt: ebtables
+#Alt: dnsmasq-base
+#Alt: libvirt-daemon-system
+#Alt: gir1.2-spiceclientgtk-3.0
+#Alt: qemu-system-x86
+#Alt: qemu-system-arm
+#Alt: qemu-utils
+#Alt: libguestfs-tools
+#Alt: virt-p2v
+#Alt: libguestfs-rsync
+#Alt: libguestfs-rescue
 netcat-openbsd
 #Alt: virt-p2v
 #Alt: virt-what

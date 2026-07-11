@@ -295,7 +295,7 @@ ibritish
 desktop-base
 papirus-icon-theme
 yaru-theme-gtk
-gnome-themes-extra
+#Alt: gnome-themes-extra
 sound-theme-freedesktop
 gnome-audio
 qt5-gtk-platformtheme
@@ -303,7 +303,7 @@ qt5-gtk-platformtheme
 #Alt: deepin-icon-theme
 #Alt: paper-icon-theme
 #Alt: mint-y-icons
-#Alt: arc-theme
+arc-theme
 #clearlooks-phenix-theme # sid only
 #Alt: numix-gtk-theme
 #Alt: numix-icon-theme

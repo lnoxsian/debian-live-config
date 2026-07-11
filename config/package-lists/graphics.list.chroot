@@ -25,10 +25,10 @@ ristretto
 
 #Section: Image editors
 #Description: gimp
-gimp
-gimp-data-extras
-gimp-texturize
-create-resources
+#Alt: gimp
+#Alt: gimp-data-extras
+#Alt: gimp-texturize
+#Alt: create-resources
 #Alt: gimp-help-fr
 #Alt: krita
 #Alt: drawing
@@ -87,9 +87,9 @@ xournal
 
 #Section: Diagram editors
 #Description: dia
-dia
-dia-shapes
-gsfonts-x11 
+#Alt: dia
+#Alt: dia-shapes
+#Alt: gsfonts-x11 
 
 #Section: Label/barcode editors
 ##Screenshot: glabels
