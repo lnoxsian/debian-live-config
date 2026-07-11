@@ -277,15 +277,15 @@ gnome-font-viewer
 #Section: Spell checking/dictionaries
 hunspell
 hunspell-en-us
-hunspell-fr
+#Alt: hunspell-fr
 aspell
-aspell-fr
-hunspell-fr
+#Alt: aspell-fr
+#Alt: hunspell-fr
 ispell
 iamerican
 ibritish
-ifrench-gut
-wfrench
+#Alt: ifrench-gut
+#Alt: wfrench
 #Alt: xfce4-dict
 #Alt: goldendict
 #Alt: verbiste-gnome
